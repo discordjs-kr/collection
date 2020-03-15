@@ -1,1 +1,643 @@
-{"meta":{"generator":"0.9.0","format":20,"date":1583010677731},"custom":{"general":{"name":"General","files":{"welcome":{"name":"Welcome","type":"md","content":"# Collection\n\nUtility data structure used in Discord.js.\n","path":"docs/general/welcome.md"}}}},"classes":[{"name":"Collection","description":"<p>A Map with additional utility methods. This is used throughout discord.js rather than Arrays for anything that has\nan ID, for significantly improved performance and ease-of-use.</p>","extends":[[["Map"]]],"props":[{"name":"_array","description":"<p>Cached array for the <code>array()</code> method - will be reset to <code>null</code> whenever <code>set()</code> or <code>delete()</code> are called</p>","access":"private","nullable":true,"type":[[["Array"]]],"meta":{"line":19,"file":"index.ts","path":"src"}},{"name":"_keyArray","description":"<p>Cached array for the <code>keyArray()</code> method - will be reset to <code>null</code> whenever <code>set()</code> or <code>delete()</code> are called</p>","access":"private","nullable":true,"type":[[["Array"]]],"meta":{"line":31,"file":"index.ts","path":"src"}}],"methods":[{"name":"get","description":"<p>Identical to <a href=\"https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map/get\">Map.get()</a>.\nGets an element with the specified key, and returns its value, or <code>undefined</code> if the element does not exist.</p>","params":[{"name":"key","description":"<p>The key to get from this collection</p>","type":[["*"]]}],"returns":[["*"],[["undefined"]]],"meta":{"line":52,"file":"index.ts","path":"src"}},{"name":"set","description":"<p>Identical to <a href=\"https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map/set\">Map.set()</a>.\nSets a new element in the collection with the specified key and value.</p>","params":[{"name":"key","description":"<p>The key of the element to add</p>","type":[["*"]]},{"name":"value","description":"<p>The value of the element to add</p>","type":[["*"]]}],"returns":[[["Collection"]]],"meta":{"line":64,"file":"index.ts","path":"src"}},{"name":"has","description":"<p>Identical to <a href=\"https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map/has\">Map.has()</a>.\nChecks if an element exists in the collection.</p>","params":[{"name":"key","description":"<p>The key of the element to check for</p>","type":[["*"]]}],"returns":{"types":[[["boolean"]]],"description":"<p><code>true</code> if the element exists, <code>false</code> if it does not exist.</p>"},"meta":{"line":77,"file":"index.ts","path":"src"}},{"name":"delete","description":"<p>Identical to <a href=\"https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map/delete\">Map.delete()</a>.\nDeletes an element from the collection.</p>","params":[{"name":"key","description":"<p>The key to delete from the collection</p>","type":[["*"]]}],"returns":{"types":[[["boolean"]]],"description":"<p><code>true</code> if the element was removed, <code>false</code> if the element does not exist.</p>"},"meta":{"line":88,"file":"index.ts","path":"src"}},{"name":"clear","description":"<p>Identical to <a href=\"https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map/clear\">Map.clear()</a>.\nRemoves all elements from the collection.</p>","returns":[[["undefined"]]],"meta":{"line":100,"file":"index.ts","path":"src"}},{"name":"array","description":"<p>Creates an ordered array of the values of this collection, and caches it internally. The array will only be\nreconstructed if an item is added to or removed from the collection, or if you change the length of the array\nitself. If you don't want this caching behavior, use <code>[...collection.values()]</code> or\n<code>Array.from(collection.values())</code> instead.</p>","returns":[[["Array"]]],"meta":{"line":112,"file":"index.ts","path":"src"}},{"name":"keyArray","description":"<p>Creates an ordered array of the keys of this collection, and caches it internally. The array will only be\nreconstructed if an item is added to or removed from the collection, or if you change the length of the array\nitself. If you don't want this caching behavior, use <code>[...collection.keys()]</code> or\n<code>Array.from(collection.keys())</code> instead.</p>","returns":[[["Array"]]],"meta":{"line":125,"file":"index.ts","path":"src"}},{"name":"first","description":"<p>Obtains the first value(s) in this collection.</p>","params":[{"name":"amount","description":"<p>Amount of values to obtain from the beginning</p>","optional":true,"type":[[["number"]]]}],"returns":{"types":[["*"],[["Array","<"],["*",">"]]],"description":"<p>A single value if no amount is provided or an array of values, starting from the end if\namount is negative</p>"},"meta":{"line":137,"file":"index.ts","path":"src"}},{"name":"firstKey","description":"<p>Obtains the first key(s) in this collection.</p>","params":[{"name":"amount","description":"<p>Amount of keys to obtain from the beginning</p>","optional":true,"type":[[["number"]]]}],"returns":{"types":[["*"],[["Array","<"],["*",">"]]],"description":"<p>A single key if no amount is provided or an array of keys, starting from the end if\namount is negative</p>"},"meta":{"line":154,"file":"index.ts","path":"src"}},{"name":"last","description":"<p>Obtains the last value(s) in this collection. This relies on {@link Collection#array}, and thus the caching\nmechanism applies here as well.</p>","params":[{"name":"amount","description":"<p>Amount of values to obtain from the end</p>","optional":true,"type":[[["number"]]]}],"returns":{"types":[["*"],[["Array","<"],["*",">"]]],"description":"<p>A single value if no amount is provided or an array of values, starting from the start if\namount is negative</p>"},"meta":{"line":172,"file":"index.ts","path":"src"}},{"name":"lastKey","description":"<p>Obtains the last key(s) in this collection. This relies on {@link Collection#keyArray}, and thus the caching\nmechanism applies here as well.</p>","params":[{"name":"amount","description":"<p>Amount of keys to obtain from the end</p>","optional":true,"type":[[["number"]]]}],"returns":{"types":[["*"],[["Array","<"],["*",">"]]],"description":"<p>A single key if no amount is provided or an array of keys, starting from the start if\namount is negative</p>"},"meta":{"line":188,"file":"index.ts","path":"src"}},{"name":"random","description":"<p>Obtains unique random value(s) from this collection. This relies on {@link Collection#array}, and thus the caching\nmechanism applies here as well.</p>","params":[{"name":"amount","description":"<p>Amount of values to obtain randomly</p>","optional":true,"type":[[["number"]]]}],"returns":{"types":[["*"],[["Array","<"],["*",">"]]],"description":"<p>A single value if no amount is provided or an array of values</p>"},"meta":{"line":203,"file":"index.ts","path":"src"}},{"name":"randomKey","description":"<p>Obtains unique random key(s) from this collection. This relies on {@link Collection#keyArray}, and thus the caching\nmechanism applies here as well.</p>","params":[{"name":"amount","description":"<p>Amount of keys to obtain randomly</p>","optional":true,"type":[[["number"]]]}],"returns":{"types":[["*"],[["Array","<"],["*",">"]]],"description":"<p>A single key if no amount is provided or an array</p>"},"meta":{"line":220,"file":"index.ts","path":"src"}},{"name":"find","description":"<p>Searches for a single item where the given function returns a truthy value. This behaves like\n<a href=\"https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/find\">Array.find()</a>.\n<warn>All collections used in Discord.js are mapped using their <code>id</code> property, and if you want to find by id you\nshould use the <code>get</code> method. See\n<a href=\"https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map/get\">MDN</a> for details.</warn></p>","examples":["collection.find(user => user.username === 'Bob');"],"params":[{"name":"fn","description":"<p>The function to test with (should return boolean)</p>","type":[[["function"]]]},{"name":"thisArg","description":"<p>Value to use as <code>this</code> when executing function</p>","optional":true,"type":[["*"]]}],"returns":[["*"]],"meta":{"line":242,"file":"index.ts","path":"src"}},{"name":"findKey","description":"<p>Searches for the key of a single item where the given function returns a truthy value. This behaves like\n<a href=\"https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/findIndex\">Array.findIndex()</a>,\nbut returns the key rather than the positional index.</p>","examples":["collection.findKey(user => user.username === 'Bob');"],"params":[{"name":"fn","description":"<p>The function to test with (should return boolean)</p>","type":[[["function"]]]},{"name":"thisArg","description":"<p>Value to use as <code>this</code> when executing function</p>","optional":true,"type":[["*"]]}],"returns":[["*"]],"meta":{"line":262,"file":"index.ts","path":"src"}},{"name":"sweep","description":"<p>Removes items that satisfy the provided filter function.</p>","params":[{"name":"fn","description":"<p>Function used to test (should return a boolean)</p>","type":[[["function"]]]},{"name":"thisArg","description":"<p>Value to use as <code>this</code> when executing function</p>","optional":true,"type":[["*"]]}],"returns":{"types":[[["number"]]],"description":"<p>The number of removed entries</p>"},"meta":{"line":279,"file":"index.ts","path":"src"}},{"name":"filter","description":"<p>Identical to\n<a href=\"https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter\">Array.filter()</a>,\nbut returns a Collection instead of an Array.</p>","examples":["collection.filter(user => user.username === 'Bob');"],"params":[{"name":"fn","description":"<p>The function to test with (should return boolean)</p>","type":[[["function"]]]},{"name":"thisArg","description":"<p>Value to use as <code>this</code> when executing function</p>","optional":true,"type":[["*"]]}],"returns":[[["Collection"]]],"meta":{"line":300,"file":"index.ts","path":"src"}},{"name":"partition","description":"<p>Partitions the collection into two collections where the first collection\ncontains the items that passed and the second contains the items that failed.</p>","examples":["const [big, small] = collection.partition(guild => guild.memberCount > 250);"],"params":[{"name":"fn","description":"<p>Function used to test (should return a boolean)</p>","type":[[["function"]]]},{"name":"thisArg","description":"<p>Value to use as <code>this</code> when executing function</p>","optional":true,"type":[["*"]]}],"returns":[[["Array","<"],["Collection",">"]]],"meta":{"line":320,"file":"index.ts","path":"src"}},{"name":"flatMap","description":"<p>Maps each item into a Collection, then joins the results into a single Collection. Identical in behavior to\n<a href=\"https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/flatMap\">Array.flatMap()</a>.</p>","examples":["collection.flatMap(guild => guild.members);"],"params":[{"name":"fn","description":"<p>Function that produces a new Collection</p>","type":[[["function"]]]},{"name":"thisArg","description":"<p>Value to use as <code>this</code> when executing function</p>","optional":true,"type":[["*"]]}],"returns":[[["Collection"]]],"meta":{"line":345,"file":"index.ts","path":"src"}},{"name":"map","description":"<p>Maps each item to another value into an array. Identical in behavior to\n<a href=\"https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map\">Array.map()</a>.</p>","examples":["collection.map(user => user.tag);"],"params":[{"name":"fn","description":"<p>Function that produces an element of the new array, taking three arguments</p>","type":[[["function"]]]},{"name":"thisArg","description":"<p>Value to use as <code>this</code> when executing function</p>","optional":true,"type":[["*"]]}],"returns":[[["Array"]]],"meta":{"line":359,"file":"index.ts","path":"src"}},{"name":"mapValues","description":"<p>Maps each item to another value into a collection. Identical in behavior to\n<a href=\"https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map\">Array.map()</a>.</p>","examples":["collection.mapValues(user => user.tag);"],"params":[{"name":"fn","description":"<p>Function that produces an element of the new collection, taking three arguments</p>","type":[[["function"]]]},{"name":"thisArg","description":"<p>Value to use as <code>this</code> when executing function</p>","optional":true,"type":[["*"]]}],"returns":[[["Collection"]]],"meta":{"line":379,"file":"index.ts","path":"src"}},{"name":"some","description":"<p>Checks if there exists an item that passes a test. Identical in behavior to\n<a href=\"https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/some\">Array.some()</a>.</p>","examples":["collection.some(user => user.discriminator === '0000');"],"params":[{"name":"fn","description":"<p>Function used to test (should return a boolean)</p>","type":[[["function"]]]},{"name":"thisArg","description":"<p>Value to use as <code>this</code> when executing function</p>","optional":true,"type":[["*"]]}],"returns":[[["boolean"]]],"meta":{"line":397,"file":"index.ts","path":"src"}},{"name":"every","description":"<p>Checks if all items passes a test. Identical in behavior to\n<a href=\"https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/every\">Array.every()</a>.</p>","examples":["collection.every(user => !user.bot);"],"params":[{"name":"fn","description":"<p>Function used to test (should return a boolean)</p>","type":[[["function"]]]},{"name":"thisArg","description":"<p>Value to use as <code>this</code> when executing function</p>","optional":true,"type":[["*"]]}],"returns":[[["boolean"]]],"meta":{"line":416,"file":"index.ts","path":"src"}},{"name":"reduce","description":"<p>Applies a function to produce a single value. Identical in behavior to\n<a href=\"https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce\">Array.reduce()</a>.</p>","examples":["collection.reduce((acc, guild) => acc + guild.memberCount, 0);"],"params":[{"name":"fn","description":"<p>Function used to reduce, taking four arguments; <code>accumulator</code>, <code>currentValue</code>, <code>currentKey</code>,\nand <code>collection</code></p>","type":[[["function"]]]},{"name":"initialValue","description":"<p>Starting value for the accumulator</p>","optional":true,"type":[["*"]]}],"returns":[["*"]],"meta":{"line":436,"file":"index.ts","path":"src"}},{"name":"each","description":"<p>Identical to\n<a href=\"https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map/forEach\">Map.forEach()</a>,\nbut returns the collection instead of undefined.</p>","examples":["collection\n .each(user => console.log(user.username))\n .filter(user => user.bot)\n .each(user => console.log(user.username));"],"params":[{"name":"fn","description":"<p>Function to execute for each element</p>","type":[[["function"]]]},{"name":"thisArg","description":"<p>Value to use as <code>this</code> when executing function</p>","optional":true,"type":[["*"]]}],"returns":[[["Collection"]]],"meta":{"line":481,"file":"index.ts","path":"src"}},{"name":"tap","description":"<p>Runs a function on the collection and returns the collection.</p>","examples":["collection\n .tap(coll => console.log(coll.size))\n .filter(user => user.bot)\n .tap(coll => console.log(coll.size))"],"params":[{"name":"fn","description":"<p>Function to execute</p>","type":[[["function"]]]},{"name":"thisArg","description":"<p>Value to use as <code>this</code> when executing function</p>","optional":true,"type":[["*"]]}],"returns":[[["Collection"]]],"meta":{"line":498,"file":"index.ts","path":"src"}},{"name":"clone","description":"<p>Creates an identical shallow copy of this collection.</p>","examples":["const newColl = someColl.clone();"],"returns":[[["Collection"]]],"meta":{"line":510,"file":"index.ts","path":"src"}},{"name":"concat","description":"<p>Combines this collection with others into a new collection. None of the source collections are modified.</p>","examples":["const newColl = someColl.concat(someOtherColl, anotherColl, ohBoyAColl);"],"params":[{"name":"collections","description":"<p>Collections to merge</p>","variable":true,"type":[[["Collection"]]]}],"returns":[[["Collection"]]],"meta":{"line":521,"file":"index.ts","path":"src"}},{"name":"equals","description":"<p>Checks if this collection shares identical items with another.\nThis is different to checking for equality using equal-signs, because\nthe collections may be different objects, but contain the same data.</p>","params":[{"name":"collection","description":"<p>Collection to compare with</p>","type":[[["Collection"]]]}],"returns":{"types":[[["boolean"]]],"description":"<p>Whether the collections have identical contents</p>"},"meta":{"line":539,"file":"index.ts","path":"src"}},{"name":"sort","description":"<p>The sort method sorts the items of a collection in place and returns it.\nThe sort is not necessarily stable. The default sort order is according to string Unicode code points.</p>","examples":["collection.sort((userA, userB) => userA.createdTimestamp - userB.createdTimestamp);"],"params":[{"name":"compareFunction","description":"<p>Specifies a function that defines the sort order.\nIf omitted, the collection is sorted according to each character's Unicode code point value,\naccording to the string conversion of each element.</p>","optional":true,"type":[[["function"]]]}],"returns":[[["Collection"]]],"meta":{"line":563,"file":"index.ts","path":"src"}},{"name":"intersect","description":"<p>The intersect method returns a new structure containing items where the keys are present in both original structures.</p>","params":[{"name":"other","description":"<p>The other Collection to filter against</p>","type":[[["Collection"]]]}],"returns":[[["Collection"]]],"meta":{"line":584,"file":"index.ts","path":"src"}},{"name":"difference","description":"<p>The difference method returns a new structure containing items where the key is present in one of the original structures but not the other.</p>","params":[{"name":"other","description":"<p>The other Collection to filter against</p>","type":[[["Collection"]]]}],"returns":[[["Collection"]]],"meta":{"line":594,"file":"index.ts","path":"src"}},{"name":"sorted","description":"<p>The sorted method sorts the items of a collection and returns it.\nThe sort is not necessarily stable. The default sort order is according to string Unicode code points.</p>","examples":["collection.sorted((userA, userB) => userA.createdTimestamp - userB.createdTimestamp);"],"params":[{"name":"compareFunction","description":"<p>Specifies a function that defines the sort order.\nIf omitted, the collection is sorted according to each character's Unicode code point value,\naccording to the string conversion of each element.</p>","optional":true,"type":[[["function"]]]}],"returns":[[["Collection"]]],"meta":{"line":608,"file":"index.ts","path":"src"}}],"meta":{"line":17,"file":"index.ts","path":"src"}}],"interfaces":[],"typedefs":[],"externals":[]}
+{
+  "meta": { "generator": "0.9.0", "format": 20, "date": 1583010677731 },
+  "custom": {
+    "general": {
+      "name": "일반",
+      "files": {
+        "welcome": {
+          "name": "환영합니다.",
+          "type": "md",
+          "content": "# 컬렉션\n\nDiscord.js에서 사용되는 유틸리티 데이터 구조입니다.\n",
+          "path": "docs/general/welcome.md"
+        }
+      }
+    }
+  },
+  "classes": [
+    {
+      "name": "Collection",
+      "description": "<p>추가 유틸리티 메서드가 포함된 맵입니다. 이는 어레이가 아닌 discord.js 전반에 걸쳐 사용되며, 이는 상당히 향상된 성능과 사용 편의성을 제공합니다.</p>",
+      "extends": [[["Map"]]],
+      "props": [
+        {
+          "name": "_array",
+          "description": "<p>Cached array for the <code>array()</code> method - will be reset to <code>null</code> whenever <code>set()</code> or <code>delete()</code> are called</p>",
+          "access": "private",
+          "nullable": true,
+          "type": [[["Array"]]],
+          "meta": { "line": 19, "file": "index.ts", "path": "src" }
+        },
+        {
+          "name": "_keyArray",
+          "description": "<p>Cached array for the <code>keyArray()</code> method - will be reset to <code>null</code> whenever <code>set()</code> or <code>delete()</code> are called</p>",
+          "access": "private",
+          "nullable": true,
+          "type": [[["Array"]]],
+          "meta": { "line": 31, "file": "index.ts", "path": "src" }
+        }
+      ],
+      "methods": [
+        {
+          "name": "get",
+          "description": "<p><a href=\"https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map/get\">Map.get()</a>와 동일합니다.\n특정한 키로 요소를 가져오고, 값을 반환합니다. 요소가 존재하지 않을 경우 <code>undefined</code>를 반환합니다.</p>",
+          "params": [
+            {
+              "name": "key",
+              "description": "<p>컬렉션에서 가져올 키</p>",
+              "type": [["*"]]
+            }
+          ],
+          "returns": [["*"], [["undefined"]]],
+          "meta": { "line": 52, "file": "index.ts", "path": "src" }
+        },
+        {
+          "name": "set",
+          "description": "<p><a href=\"https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map/set\">Map.set()</a>와 동일합니다.\n컬렉션에 새로운 요소를 특정한 키와 값으로 설정합니다.</p>",
+          "params": [
+            {
+              "name": "key",
+              "description": "<p>추가할 요소의 키</p>",
+              "type": [["*"]]
+            },
+            {
+              "name": "value",
+              "description": "<p>추가할 요소의 값</p>",
+              "type": [["*"]]
+            }
+          ],
+          "returns": [[["Collection"]]],
+          "meta": { "line": 64, "file": "index.ts", "path": "src" }
+        },
+        {
+          "name": "has",
+          "description": "<p><a href=\"https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map/has\">Map.has()</a>와 동일합니다.\n컬렉션에 요소가 존재하는지 확인합니다.</p>",
+          "params": [
+            {
+              "name": "key",
+              "description": "<p>확인할 요소의 키</p>",
+              "type": [["*"]]
+            }
+          ],
+          "returns": {
+            "types": [[["boolean"]]],
+            "description": "<p>존재하는 경우 <code>true</code>, 존재하지 않는 경우 <code>false</code></p>"
+          },
+          "meta": { "line": 77, "file": "index.ts", "path": "src" }
+        },
+        {
+          "name": "delete",
+          "description": "<p><a href=\"https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map/delete\">Map.delete()</a>와 동일합니다.\n컬렉션에서 요소를 제거합니다.</p>",
+          "params": [
+            {
+              "name": "key",
+              "description": "<p>컬렉션에서 제거할 키</p>",
+              "type": [["*"]]
+            }
+          ],
+          "returns": {
+            "types": [[["boolean"]]],
+            "description": "<p>요소가 제거되었다면 <code>true</code>, 요소가 존재하지 않는다면 <code>false</code>.</p>"
+          },
+          "meta": { "line": 88, "file": "index.ts", "path": "src" }
+        },
+        {
+          "name": "clear",
+          "description": "<p><a href=\"https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map/clear\">Map.clear()</a>와 동일합니다.\n컬렉션에서 모든 요소를 제거합니다.</p>",
+          "returns": [[["undefined"]]],
+          "meta": { "line": 100, "file": "index.ts", "path": "src" }
+        },
+        {
+          "name": "array",
+          "description": "<p>이 컬렉션의 값의 순서 배열을 생성하고 내부적으로 캐시합니다. 항목이 컬렉션에 추가되거나 컬렉션에서 제거된 경우 또는 배열의 길이를 변경한 경우에만 배열이 재구성됩니다. 캐싱을 원하지 않으면 <code>[...collection.values()]</code> 또는\n<code>Array.from(collection.values())</code>를 사용합니다.</p>",
+          "returns": [[["Array"]]],
+          "meta": { "line": 112, "file": "index.ts", "path": "src" }
+        },
+        {
+          "name": "keyArray",
+          "description": "<p>이 컬렉션의 키 정렬 배열을 생성합니다. 항목이 컬렉션에 추가되거나 컬렉션에서 제거된 경우 또는 배열의 길이를 변경한 경우에만 배열이 재구성됩니다. 캐싱을 원하지 않으면 <code>[...collection.values()]</code> 또는\n<code>Array.from(collection.values())</code>를 사용합니다.</p>",
+          "returns": [[["Array"]]],
+          "meta": { "line": 125, "file": "index.ts", "path": "src" }
+        },
+        {
+          "name": "first",
+          "description": "<p>컬렉션의 첫 번째 값을 가져옵니다.</p>",
+          "params": [
+            {
+              "name": "amount",
+              "description": "<p>처음부터 가져올 값의 개수</p>",
+              "optional": true,
+              "type": [[["number"]]]
+            }
+          ],
+          "returns": {
+            "types": [
+              ["*"],
+              [
+                ["Array", "<"],
+                ["*", ">"]
+              ]
+            ],
+            "description": "<p>값이 제공되지 않은 경우 단일 값 또는 값 배열(amount가 음수인 경우 끝에서 시작합니다)</p>"
+          },
+          "meta": { "line": 137, "file": "index.ts", "path": "src" }
+        },
+        {
+          "name": "firstKey",
+          "description": "<p>컬렉션에서 첫 번째 키를 가져옵니다.</p>",
+          "params": [
+            {
+              "name": "amount",
+              "description": "<p>처음부터 가져올 키의 개수</p>",
+              "optional": true,
+              "type": [[["number"]]]
+            }
+          ],
+          "returns": {
+            "types": [
+              ["*"],
+              [
+                ["Array", "<"],
+                ["*", ">"]
+              ]
+            ],
+            "description": "<p>값이 제공되지 않은 경우 단일 키 또는 키 배열(amount가 음수인 경우 끝에서 시작합니다)</p>"
+          },
+          "meta": { "line": 154, "file": "index.ts", "path": "src" }
+        },
+        {
+          "name": "last",
+          "description": "<p>컬렉션에서 마지막 값을 가져옵니다. 이는 {@link Collection#keyArray}에 의존하므로 캐싱\n메커니즘이 여기에 적용됩니다.</p>",
+          "params": [
+            {
+              "name": "amount",
+              "description": "<p>마지막부터 가져올 값의 개수</p>",
+              "optional": true,
+              "type": [[["number"]]]
+            }
+          ],
+          "returns": {
+            "types": [
+              ["*"],
+              [
+                ["Array", "<"],
+                ["*", ">"]
+              ]
+            ],
+            "description": "<p>값이 제공되지 않은 경우 단일 값 또는 값 배열(amount가 음수인 경우 끝에서 시작합니다)</p>"
+          },
+          "meta": { "line": 172, "file": "index.ts", "path": "src" }
+        },
+        {
+          "name": "lastKey",
+          "description": "<p>컬렉션에서 마지막 키를 가져옵니다. 이는 {@link Collection#keyArray}에 의존하므로 캐싱\n메커니즘이 여기에 적용됩니다.</p>",
+          "params": [
+            {
+              "name": "amount",
+              "description": "<p>마지막부터 가져올 키의 개수</p>",
+              "optional": true,
+              "type": [[["number"]]]
+            }
+          ],
+          "returns": {
+            "types": [
+              ["*"],
+              [
+                ["Array", "<"],
+                ["*", ">"]
+              ]
+            ],
+            "description": "<p>키가 제공되지 않은 경우 단일 키 또는 키 배열(amount가 음수인 경우 끝에서 시작합니다)</p>"
+          },
+          "meta": { "line": 188, "file": "index.ts", "path": "src" }
+        },
+        {
+          "name": "random",
+          "description": "<p>컬렉션에서 고유한 랜덤 값을 가져옵니다. 이는 {@link Collection#array}에 의존하므로 캐싱 메커니즘도 여기에 적용됩니다.</p>",
+          "params": [
+            {
+              "name": "amount",
+              "description": "<p>랜덤으로 가져올 값의 양</p>",
+              "optional": true,
+              "type": [[["number"]]]
+            }
+          ],
+          "returns": {
+            "types": [
+              ["*"],
+              [
+                ["Array", "<"],
+                ["*", ">"]
+              ]
+            ],
+            "description": "<p>amount 제공되지 않은 경우 단일 값 또는 값 배열</p>"
+          },
+          "meta": { "line": 203, "file": "index.ts", "path": "src" }
+        },
+        {
+          "name": "randomKey",
+          "description": "<p>컬렉션에서 고유한 랜덤 키를 가져옵니다. 이는 {@link Collection#array}에 의존하므로 캐싱 메커니즘도 여기에 적용됩니다.</p>",
+          "params": [
+            {
+              "name": "amount",
+              "description": "<p>랜덤으로 가져올 키의 양</p>",
+              "optional": true,
+              "type": [[["number"]]]
+            }
+          ],
+          "returns": {
+            "types": [
+              ["*"],
+              [
+                ["Array", "<"],
+                ["*", ">"]
+              ]
+            ],
+            "description": "<p>amount가 제공되지 않은 경우 단일 키 또는 키 배열/p>"
+          },
+          "meta": { "line": 220, "file": "index.ts", "path": "src" }
+        },
+        {
+          "name": "find",
+          "description": "<p>지정된 함수가 참 값을 반환하는 단일 항목의 값을 검색합니다.\n<a href=\"https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/find\">Array.find()</a>와 비슷하게 동작한다.\n<warn>Discord.js 에 사용된 컬렉션은 모두 <code>id</code>로 매핑된다. \n또한, ID를 이용하여 값을 찾고 싶다면, <code>get</code> 메서드를 사용하세요. \n더 알아보고 싶다면 <a href=\"https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map/get\">MDN</a>을 확인해보세요.</warn></p>",
+          "examples": ["collection.find(user => user.username === 'Bob');"],
+          "params": [
+            {
+              "name": "fn",
+              "description": "<p>테스트 할 함수 (Boolean 값이여야함)</p>",
+              "type": [[["function"]]]
+            },
+            {
+              "name": "thisArg",
+              "description": "<p>함수를 실행할 때 <code>this</code>처럼 사용할 값</p>",
+              "optional": true,
+              "type": [["*"]]
+            }
+          ],
+          "returns": [["*"]],
+          "meta": { "line": 242, "file": "index.ts", "path": "src" }
+        },
+        {
+          "name": "findKey",
+          "description": "<p>지정된 함수가 참 값을 반환하는 단일 항목의 키를 검색합니다.\n<a href=\"https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/findIndex\">Array.findIndex()</a>와 비슷하게 동작합니다. 하지만 위치 인덱스가 아닌 키를 반환합니다..</p>",
+          "examples": ["collection.findKey(user => user.username === 'Bob');"],
+          "params": [
+            {
+              "name": "fn",
+              "description": "<p>테스트 할 함수 (Boolean 값이여야함)</p>",
+              "type": [[["function"]]]
+            },
+            {
+              "name": "thisArg",
+              "description": "<p>함수를 실행할 때 <code>this</code>처럼 사용할 값</p>",
+              "optional": true,
+              "type": [["*"]]
+            }
+          ],
+          "returns": [["*"]],
+          "meta": { "line": 262, "file": "index.ts", "path": "src" }
+        },
+        {
+          "name": "sweep",
+          "description": "<p>제공된 필터 기능을 충족하는 항목을 제거합니다.</p>",
+          "params": [
+            {
+              "name": "fn",
+              "description": "<p>테스트 할 함수 (Boolean 값이여야함)</p>",
+              "type": [[["function"]]]
+            },
+            {
+              "name": "thisArg",
+              "description": "<p>함수를 실행할 때 <code>this</code>처럼 사용할 값</p>",
+              "optional": true,
+              "type": [["*"]]
+            }
+          ],
+          "returns": {
+            "types": [[["number"]]],
+            "description": "<p>제거된 항목 수</p>"
+          },
+          "meta": { "line": 279, "file": "index.ts", "path": "src" }
+        },
+        {
+          "name": "filter",
+          "description": "<p><a href=\"https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter\">Array.filter()</a>와 동일합니다.\n하지만, 배열 대신 컬렉션을 반환합니다.</p>",
+          "examples": ["collection.filter(user => user.username === 'Bob');"],
+          "params": [
+            {
+              "name": "fn",
+              "description": "<p>테스트 할 함수 (Boolean 값이여야함)</p>",
+              "type": [[["function"]]]
+            },
+            {
+              "name": "thisArg",
+              "description": "<p>함수를 실행할 때 <code>this</code>처럼 사용할 값</p>",
+              "optional": true,
+              "type": [["*"]]
+            }
+          ],
+          "returns": [[["Collection"]]],
+          "meta": { "line": 300, "file": "index.ts", "path": "src" }
+        },
+        {
+          "name": "partition",
+          "description": "<p>첫 번째 컬렉션에 통과한 항목이 포함되어 있고 두 번째 컬렉션에 실패한 항목이 포함된 두 개의 컬렉션으로 컬렉션을 분할합니다.</p>",
+          "examples": [
+            "const [big, small] = collection.partition(guild => guild.memberCount > 250);"
+          ],
+          "params": [
+            {
+              "name": "fn",
+              "description": "<p>테스트 할 함수 (Boolean 값이여야함)</p>",
+              "type": [[["function"]]]
+            },
+            {
+              "name": "thisArg",
+              "description": "<p>함수를 실행할 때 <code>this</code>처럼 사용할 값</p>",
+              "optional": true,
+              "type": [["*"]]
+            }
+          ],
+          "returns": [
+            [
+              ["Array", "<"],
+              ["Collection", ">"]
+            ]
+          ],
+          "meta": { "line": 320, "file": "index.ts", "path": "src" }
+        },
+        {
+          "name": "flatMap",
+          "description": "<p>각 항목을 컬렉션에 매핑한 다음 결과를 단일 컬렉션에 결합합니다.\n<a href=\"https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/flatMap\">Array.flatMap()</a>와 동일합니다.</p>",
+          "examples": ["collection.flatMap(guild => guild.members);"],
+          "params": [
+            {
+              "name": "fn",
+              "description": "<p>새로운 컬렉션을 생성하는 함수</p>",
+              "type": [[["function"]]]
+            },
+            {
+              "name": "thisArg",
+              "description": "<p>함수를 실행할 때 <code>this</code>처럼 사용할 값</p>",
+              "optional": true,
+              "type": [["*"]]
+            }
+          ],
+          "returns": [[["Collection"]]],
+          "meta": { "line": 345, "file": "index.ts", "path": "src" }
+        },
+        {
+          "name": "map",
+          "description": "<p>각 항목을 다른 항목에 매핑합니다.\n<a href=\"https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map\">Array.map()</a>와 동일합니다.</p>",
+          "examples": ["collection.map(user => user.tag);"],
+          "params": [
+            {
+              "name": "fn",
+              "description": "<p>세 개의 인수를 사용하여 새 배열의 요소를 생성하는 함수</p>",
+              "type": [[["function"]]]
+            },
+            {
+              "name": "thisArg",
+              "description": "<p>함수를 실행할 때 <code>this</code>처럼 사용할 값</p>",
+              "optional": true,
+              "type": [["*"]]
+            }
+          ],
+          "returns": [[["Array"]]],
+          "meta": { "line": 359, "file": "index.ts", "path": "src" }
+        },
+        {
+          "name": "mapValues",
+          "description": "<p>각 항목을 다른 값으로 컬렉션에 매핑합니다. \n<a href=\"https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map\">Array.map()</a>와 동일합니다.</p>",
+          "examples": ["collection.mapValues(user => user.tag);"],
+          "params": [
+            {
+              "name": "fn",
+              "description": "<p>세 개의 인수를 사용하여 새 배열의 요소를 생성하는 함수</p>",
+              "type": [[["function"]]]
+            },
+            {
+              "name": "thisArg",
+              "description": "<p>함수를 실행할 때 <code>this</code>처럼 사용할 값</p>",
+              "optional": true,
+              "type": [["*"]]
+            }
+          ],
+          "returns": [[["Collection"]]],
+          "meta": { "line": 379, "file": "index.ts", "path": "src" }
+        },
+        {
+          "name": "some",
+          "description": "<p>테스트를 통과한 항목이 있는지 확인합니다. \n<a href=\"https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/some\">Array.some()</a>와 동일합니다.</p>",
+          "examples": [
+            "collection.some(user => user.discriminator === '0000');"
+          ],
+          "params": [
+            {
+              "name": "fn",
+              "description": "<p>테스트 할 함수 (Boolean 값이여야함)</p>",
+              "type": [[["function"]]]
+            },
+            {
+              "name": "thisArg",
+              "description": "<p>함수를 실행할 때 <code>this</code>처럼 사용할 값</p>",
+              "optional": true,
+              "type": [["*"]]
+            }
+          ],
+          "returns": [[["boolean"]]],
+          "meta": { "line": 397, "file": "index.ts", "path": "src" }
+        },
+        {
+          "name": "every",
+          "description": "<p>모든 아이템이 테스트를 통과했는지 확인합니다. \n<a href=\"https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/every\">Array.every()</a>와 동일합니다.</p>",
+          "examples": ["collection.every(user => !user.bot);"],
+          "params": [
+            {
+              "name": "fn",
+              "description": "<p>테스트 할 함수 (Boolean 값이여야함)</p>",
+              "type": [[["function"]]]
+            },
+            {
+              "name": "thisArg",
+              "description": "<p>함수를 실행할 때 <code>this</code>처럼 사용할 값</p>",
+              "optional": true,
+              "type": [["*"]]
+            }
+          ],
+          "returns": [[["boolean"]]],
+          "meta": { "line": 416, "file": "index.ts", "path": "src" }
+        },
+        {
+          "name": "reduce",
+          "description": "<p>함수를 적용하여 단일 값을 생성합니다. \n<a href=\"https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce\">Array.reduce()</a>와 동일합니다..</p>",
+          "examples": [
+            "collection.reduce((acc, guild) => acc + guild.memberCount, 0);"
+          ],
+          "params": [
+            {
+              "name": "fn",
+              "description": "<p>4개의 인수를 사용하여 축소하는 데 사용됩니다. \n인수: <code>accumulator</code>, <code>currentValue</code>, <code>currentKey</code>, <code>collection</code></p>",
+              "type": [[["function"]]]
+            },
+            {
+              "name": "initialValue",
+              "description": "<p>accumulator의 시작값</p>",
+              "optional": true,
+              "type": [["*"]]
+            }
+          ],
+          "returns": [["*"]],
+          "meta": { "line": 436, "file": "index.ts", "path": "src" }
+        },
+        {
+          "name": "each",
+          "description": "<p><a href=\"https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map/forEach\">Map.forEach()</a>와 동일합니다.\n하지만, 컬렉션 대신 undefined를 반환합니다.</p>",
+          "examples": [
+            "collection\n .each(user => console.log(user.username))\n .filter(user => user.bot)\n .each(user => console.log(user.username));"
+          ],
+          "params": [
+            {
+              "name": "fn",
+              "description": "<p>각 요소에 대해 실행할 함수입니다.</p>",
+              "type": [[["function"]]]
+            },
+            {
+              "name": "thisArg",
+              "description": "<p>함수를 실행할 때 <code>this</code>처럼 사용할 값</p>",
+              "optional": true,
+              "type": [["*"]]
+            }
+          ],
+          "returns": [[["Collection"]]],
+          "meta": { "line": 481, "file": "index.ts", "path": "src" }
+        },
+        {
+          "name": "tap",
+          "description": "<p>컬렉션에서 함수를 실행하고 컬렉션을 반환합니다.</p>",
+          "examples": [
+            "collection\n .tap(coll => console.log(coll.size))\n .filter(user => user.bot)\n .tap(coll => console.log(coll.size))"
+          ],
+          "params": [
+            {
+              "name": "fn",
+              "description": "<p>실행할 함수</p>",
+              "type": [[["function"]]]
+            },
+            {
+              "name": "thisArg",
+              "description": "<p>함수를 실행할 때 <code>this</code>처럼 사용할 값</p>",
+              "optional": true,
+              "type": [["*"]]
+            }
+          ],
+          "returns": [[["Collection"]]],
+          "meta": { "line": 498, "file": "index.ts", "path": "src" }
+        },
+        {
+          "name": "clone",
+          "description": "<p>이 컬렉션의 동일한 복사본을 생성합니다.</p>",
+          "examples": ["const newColl = someColl.clone();"],
+          "returns": [[["Collection"]]],
+          "meta": { "line": 510, "file": "index.ts", "path": "src" }
+        },
+        {
+          "name": "concat",
+          "description": "<p>이 컬렉션을 다른 컬렉션과 결합하여 새 컬렉션으로 만듭니다. 원래 컬렉션은 수정되지 않습니다.</p>",
+          "examples": [
+            "const newColl = someColl.concat(someOtherColl, anotherColl, ohBoyAColl);"
+          ],
+          "params": [
+            {
+              "name": "collections",
+              "description": "<p>병합할 컬렉션</p>",
+              "variable": true,
+              "type": [[["Collection"]]]
+            }
+          ],
+          "returns": [[["Collection"]]],
+          "meta": { "line": 521, "file": "index.ts", "path": "src" }
+        },
+        {
+          "name": "equals",
+          "description": "<p>이 컬렉션에서 동일한 항목을 다른 항목과 공유하는지 확인합니다.\n등호 기호를 사용하여 같은지 확인하는 것과는 다릅니다. 수집된 객체는 서로 다를 수 있지만 데이터는 동일할 수 있기 때문입니다.</p>",
+          "params": [
+            {
+              "name": "collection",
+              "description": "<p>비교할 컬렉션</p>",
+              "type": [[["Collection"]]]
+            }
+          ],
+          "returns": {
+            "types": [[["boolean"]]],
+            "description": "<p>컬렉션의 내용이 동일한지 여부</p>"
+          },
+          "meta": { "line": 539, "file": "index.ts", "path": "src" }
+        },
+        {
+          "name": "sort",
+          "description": "<p>정렬 메서드는 컬렉션의 항목을 정렬하고 반환합니다.\n꼭 안정적인 것은 아닙니다. 기본 정렬 순서는 문자열 유니코드 코드 포인트에 따릅니다.</p>",
+          "examples": [
+            "collection.sort((userA, userB) => userA.createdTimestamp - userB.createdTimestamp);"
+          ],
+          "params": [
+            {
+              "name": "compareFunction",
+              "description": "<p>정렬 순서를 정의하는 함수를 지정합니다.\n누락된 경우, 각 요소의 문자열 변환에 따라 각 문자의 유니코드 코드 포인트 값에 따라 컬렉션이 정렬됩니다.</p>",
+              "optional": true,
+              "type": [[["function"]]]
+            }
+          ],
+          "returns": [[["Collection"]]],
+          "meta": { "line": 563, "file": "index.ts", "path": "src" }
+        },
+        {
+          "name": "intersect",
+          "description": "<p>Intersect 메서드는 키가 원래 두 구조 모두에 있는 항목을 포함하는 새 구조를 반환합니다.</p>",
+          "params": [
+            {
+              "name": "other",
+              "description": "<p>필터링할 다른 컬렉션</p>",
+              "type": [[["Collection"]]]
+            }
+          ],
+          "returns": [[["Collection"]]],
+          "meta": { "line": 584, "file": "index.ts", "path": "src" }
+        },
+        {
+          "name": "difference",
+          "description": "<p>Difference 메서드는 키가 원래 구조 중 하나에 있는 항목이 포함된 새 구조를 반환하지만 다른 구조는 반환하지 않습니다.</p>",
+          "params": [
+            {
+              "name": "other",
+              "description": "<p>필터링할 다른 컬렉션</p>",
+              "type": [[["Collection"]]]
+            }
+          ],
+          "returns": [[["Collection"]]],
+          "meta": { "line": 594, "file": "index.ts", "path": "src" }
+        },
+        {
+          "name": "sorted",
+          "description": "<p>정렬 메서드는 컬렉션의 항목을 정렬하고 반환합니다.\n꼭 안정적인 것은 아닙니다. 기본 정렬 순서는 문자열 유니코드 코드 포인트에 따릅니다.</p>",
+          "examples": [
+            "collection.sorted((userA, userB) => userA.createdTimestamp - userB.createdTimestamp);"
+          ],
+          "params": [
+            {
+              "name": "compareFunction",
+              "description": "<p>정렬 순서를 정의하는 함수를 지정합니다.\n누락된 경우, 각 요소의 문자열 변환에 따라 각 문자의 유니코드 코드 포인트 값에 따라 컬렉션이 정렬됩니다.</p>",
+              "optional": true,
+              "type": [[["function"]]]
+            }
+          ],
+          "returns": [[["Collection"]]],
+          "meta": { "line": 608, "file": "index.ts", "path": "src" }
+        }
+      ],
+      "meta": { "line": 17, "file": "index.ts", "path": "src" }
+    }
+  ],
+  "interfaces": [],
+  "typedefs": [],
+  "externals": []
+}
